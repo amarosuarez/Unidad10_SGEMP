@@ -63,7 +63,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\DAL_EJ01\DAL_EJ01.csproj" />
+	  <ProjectReference Include="..\DAL_EJ01\DAL.csproj" />
+	  <ProjectReference Include="..\ENT\ENT.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
