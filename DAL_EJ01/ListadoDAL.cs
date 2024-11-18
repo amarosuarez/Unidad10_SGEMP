@@ -19,12 +19,10 @@ namespace DAL_EJ01
         {
             List<clsPersona> listadoPersonas = new List<clsPersona>();
 
-
-            
             SqlConnection conexion = new SqlConnection();
             SqlCommand miComando = new SqlCommand();
-
             SqlDataReader miLector;
+            clsPersona persona;
 
             try
             {
@@ -32,10 +30,31 @@ namespace DAL_EJ01
                 if (conexion.State == System.Data.ConnectionState.Open)
                 {
                     // TODO recorrer la BD
+                    miComando.CommandText = "SELECT * FROM personas";
+                    miComando.Connection = conexion;
+                    miLector = miComando.ExecuteReader();
 
+                    if (miLector.HasRows)
+                    {
+                        while (miLector.Read())
+                        {
+                            persona = new clsPersona();
+                            persona.Id = (int)miLector["ID"];
+                            persona.Nombre = (string) miLector["Nombre"];
+                            persona.Apellidos = (string) miLector["Apellidos"];
+                            persona.Telefono = (string) miLector["Telefono"];
+                            persona.Direccion = (string) miLector["Direccion"];
+                            persona.Foto = (string) miLector["Foto"];
+                            persona.FechaNacimiento = (DateTime) miLector["FechaNacimiento"];
+                            persona.IdDepartamento = (int) miLector["IDDepartamento"];
+                            listadoPersonas.Add(persona);
+                        }
+                    }
+                    miLector.Close();
                 }
-            }
-            finally {
+            } catch (SqlException ex) {
+                throw ex;
+            } finally {
                 conexion.Close();
             }
 

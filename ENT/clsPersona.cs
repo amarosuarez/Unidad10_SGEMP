@@ -6,15 +6,94 @@
         private int id;
         private String nombre;
         private String apellidos;
-        private long telefono;
+        private string telefono;
         private String direccion;
         private String foto;
         private DateTime fechaNacimiento;
         private int idDepartamento;
         #endregion
 
+        #region Propiedades
+        public int Id { 
+            get { return id; } 
+            set {
+                if (value > 0)
+                {
+                    id = value;
+                }
+            }
+        }
+        public string Nombre
+        {
+            get { return nombre; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    nombre = value;
+                }
+            }
+        }
+        public string Apellidos
+        {
+            get { return apellidos; }
+            set
+            {
+                if (!string.IsNullOrEmpty (value))
+                {
+                    apellidos = value;
+                }
+            }
+        }
+        public string Telefono
+        {
+            get { return telefono; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    telefono = value;
+                }
+            }
+        }
+        public string Direccion
+        {
+            get { return direccion; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    direccion = value;
+                }
+            }
+        }
+        public string Foto {
+            get { return foto; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    foto = value;
+                }
+            }
+        }
+        public DateTime FechaNacimiento { get; set; }
+        public int IdDepartamento { 
+            get { return idDepartamento; }
+            set
+            {
+                if (value > 0)
+                {
+                    idDepartamento = value;
+                }
+            }
+        }
+        #endregion
+
         #region Constructores
-        public clsPersona(int id, string nombre, string apellidos, long telefono, string direccion, string foto, DateTime fechaNacimiento, int idDepartamento)
+        public clsPersona() { }
+
+        public clsPersona(int id, string nombre, string apellidos, string telefono, string direccion, string foto, DateTime fechaNacimiento, int idDepartamento)
         {
             if (id > 0)
             {
@@ -30,7 +109,7 @@
                 this.apellidos = apellidos;
             }
 
-            if (telefono > 0)
+            if (!string.IsNullOrEmpty(telefono))
             {
                 this.telefono = telefono;
             }
