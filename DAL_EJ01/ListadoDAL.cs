@@ -1,4 +1,5 @@
 ﻿using ENT;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,22 @@ namespace DAL_EJ01
         {
             List<clsPersona> listadoPersonas = new List<clsPersona>();
 
+
             // TODO get from DB
+            SqlConnection sqlConnection = new SqlConnection();
+            SqlCommand miComando = new SqlCommand();
+
+            SqlDataReader miLector;
+
+            try
+            {
+                sqlConnection = clsConexionDB.getConexion();
+
+
+            }
+            finally {
+                sqlConnection.Close();
+            }
 
             return listadoPersonas;
         }
