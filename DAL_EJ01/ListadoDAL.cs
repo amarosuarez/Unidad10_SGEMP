@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,20 +20,23 @@ namespace DAL_EJ01
             List<clsPersona> listadoPersonas = new List<clsPersona>();
 
 
-            // TODO get from DB
-            SqlConnection sqlConnection = new SqlConnection();
+            
+            SqlConnection conexion = new SqlConnection();
             SqlCommand miComando = new SqlCommand();
 
             SqlDataReader miLector;
 
             try
             {
-                sqlConnection = clsConexionDB.getConexion();
+                conexion = clsConexionDB.getConexion();
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    // TODO recorrer la BD
 
-
+                }
             }
             finally {
-                sqlConnection.Close();
+                conexion.Close();
             }
 
             return listadoPersonas;
