@@ -1,6 +1,8 @@
 using Ejercicio01.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using DAL_EJ01;
+using Microsoft.Data.SqlClient;
 
 namespace Ejercicio01.Controllers
 {
@@ -15,24 +17,36 @@ namespace Ejercicio01.Controllers
 
         public IActionResult Index()
         {
-            SqlConnection miConexion = new SqlConnection();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Conexion()
+        {
+            SqlConnection _conexion = new SqlConnection();
 
             try
-
             {
-
-                miConexion.ConnectionString
-                = "server=amaro.database.windows.net;database=amaroDB;uid=usuario;pwd=LaCampana123;trustServerCertificate = true;";
-
-                miConexion.Open();
-
+                _conexion = clsConexionDB.getConexion();
+                if (_conexion.State == System.Data.ConnectionState.Open)
+                {
+                    ViewBag.estado = "Conexión exitosa";
+                }
+                else
+                {
+                    ViewBag.estado = "Error: la conexión no pudo establecerse";
+                }
             }
             catch (Exception ex)
             {
-                // TODO
-                // return View("Error");
+                ViewBag.estado = "Error al intentar conectar con la base de datos";
             }
-            return View();
+            finally
+            {
+                _conexion.Close();
+            }
+
+            return View("Index");
         }
 
         public IActionResult Privacy()

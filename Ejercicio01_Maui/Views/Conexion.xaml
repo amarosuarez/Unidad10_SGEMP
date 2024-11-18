@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ejercicio01_Maui.Views.Conexion"             
+             xmlns:vm="clr-namespace:Ejercicio01_Maui.VM"
+             Title="Conexion">
+
+    <ContentPage.BindingContext>
+        <vm:conexionVM></vm:conexionVM>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout>
+        <Label 
+            Text="Conexión a la base de datos"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
