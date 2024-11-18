@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ENT;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace DAL_EJ01
         /// <returns>Listado de personas</returns>
         public static List<clsPersona> listadoCompletoPersonasDAL()
         {
-            List<clsPersona> listadoPersonas;
+            List<clsPersona> listadoPersonas = new List<clsPersona>();
 
             // TODO get from DB
 
