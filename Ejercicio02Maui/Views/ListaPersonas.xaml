@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ejercicio02Maui.Views.ListaPersonas"
+             xmlns:vmodel="clr-namespace:Ejercicio02Maui.VM"
+             Title="Lista de Personas">
+
+    <ContentPage.BindingContext>
+        <vmodel:listadoVM />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <!-- Título -->
+        <Label Text="Listado de Personas"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="DarkSlateGray" />
+
+        <!-- Mensaje de error -->
+        <Label Text="{Binding ErrorDB}"
+               IsVisible="{Binding MuestraError}"
+               TextColor="Red"
+               FontSize="16"
+               HorizontalOptions="Center"
+               Padding="10" />
+
+        <!-- Botones para Mostrar y Ocultar Lista -->
+        <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+            <Button
+                Command="{Binding MostrarLista}"
+                Text="Mostrar Personas"
+                BackgroundColor="#3498db"
+                TextColor="White"
+                Padding="10,5"
+                CornerRadius="10"
+                WidthRequest="150"/>
+            <Button
+                Command="{Binding OcultarLista}"
+                Text="Ocultar Personas"
+                BackgroundColor="#e74c3c"
+                TextColor="White"
+                Padding="10,5"
+                CornerRadius="10"
+                WidthRequest="150"/>
+        </HorizontalStackLayout>
+
+        <!-- Lista de Personas -->
+        <ScrollView>
+            <ListView ItemsSource="{Binding ListaPersonas}"
+                      IsVisible="{Binding MuestraLista}"
+                      SeparatorColor="LightGray"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <HorizontalStackLayout Padding="15"
+                                                    Spacing="10"
+                                                    VerticalOptions="Center"
+                                                    BackgroundColor="White"
+                                                    Margin="0,5">
+                                <!-- Foto -->
+                                <Image Source="{Binding Foto}" 
+                                       WidthRequest="60" 
+                                       HeightRequest="60" 
+                                       Aspect="AspectFill"/>
+
+                                <!-- Detalles -->
+                                <VerticalStackLayout Spacing="5">
+                                    <Label Text="{Binding Nombre}" 
+                                           FontSize="18" 
+                                           FontAttributes="Bold" 
+                                           TextColor="DarkSlateGray"/>
+                                    <Label Text="{Binding Apellidos}" 
+                                           FontSize="14" 
+                                           TextColor="Gray"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

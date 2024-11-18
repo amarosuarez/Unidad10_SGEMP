@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENT", "ENT\ENT.csproj", "{C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio02ASP", "Ejercicio02ASP\Ejercicio02ASP.csproj", "{13E4BEC6-4115-49BF-88C2-7E9AC6B65A10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio02Maui", "Ejercicio02Maui\Ejercicio02Maui.csproj", "{B2FC95A1-FDF8-4301-A887-F8C76F9BE62A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,12 @@ Global
 		{13E4BEC6-4115-49BF-88C2-7E9AC6B65A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13E4BEC6-4115-49BF-88C2-7E9AC6B65A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13E4BEC6-4115-49BF-88C2-7E9AC6B65A10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2FC95A1-FDF8-4301-A887-F8C76F9BE62A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2FC95A1-FDF8-4301-A887-F8C76F9BE62A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2FC95A1-FDF8-4301-A887-F8C76F9BE62A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B2FC95A1-FDF8-4301-A887-F8C76F9BE62A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2FC95A1-FDF8-4301-A887-F8C76F9BE62A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2FC95A1-FDF8-4301-A887-F8C76F9BE62A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
