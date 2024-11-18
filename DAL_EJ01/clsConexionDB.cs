@@ -11,7 +11,7 @@ namespace DAL_EJ01
             try
             {
 
-                miConexion.ConnectionString = "server=maro.database.windows.net;database=amaroDB;uid=usuario;pwd=LaCampana123;trustServerCertificate = true;";
+                miConexion.ConnectionString = "server=amaro.database.windows.net;database=amaroDB;uid=usuario;pwd=LaCampana123;trustServerCertificate = true;";
 
                 miConexion.Open();
 
