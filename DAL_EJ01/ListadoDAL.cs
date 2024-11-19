@@ -29,7 +29,6 @@ namespace DAL_EJ01
                 conexion = clsConexionDB.getConexion();
                 if (conexion.State == System.Data.ConnectionState.Open)
                 {
-                    // TODO recorrer la BD
                     miComando.CommandText = "SELECT * FROM personas";
                     miComando.Connection = conexion;
                     miLector = miComando.ExecuteReader();
