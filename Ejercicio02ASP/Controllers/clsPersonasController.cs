@@ -22,7 +22,7 @@ namespace Ejercicio02ASP.Controllers
         // GET: clsPersonas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.clsPersona.ToListAsync());
+            return View(await _context.Personas.ToListAsync());
         }
 
         // GET: clsPersonas/Details/5
@@ -33,7 +33,7 @@ namespace Ejercicio02ASP.Controllers
                 return NotFound();
             }
 
-            var clsPersona = await _context.clsPersona
+            var clsPersona = await _context.Personas
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (clsPersona == null)
             {
@@ -73,7 +73,7 @@ namespace Ejercicio02ASP.Controllers
                 return NotFound();
             }
 
-            var clsPersona = await _context.clsPersona.FindAsync(id);
+            var clsPersona = await _context.Personas.FindAsync(id);
             if (clsPersona == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Ejercicio02ASP.Controllers
                 return NotFound();
             }
 
-            var clsPersona = await _context.clsPersona
+            var clsPersona = await _context.Personas
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (clsPersona == null)
             {
@@ -139,10 +139,10 @@ namespace Ejercicio02ASP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var clsPersona = await _context.clsPersona.FindAsync(id);
+            var clsPersona = await _context.Personas.FindAsync(id);
             if (clsPersona != null)
             {
-                _context.clsPersona.Remove(clsPersona);
+                _context.Personas.Remove(clsPersona);
             }
 
             await _context.SaveChangesAsync();
@@ -151,7 +151,7 @@ namespace Ejercicio02ASP.Controllers
 
         private bool clsPersonaExists(int id)
         {
-            return _context.clsPersona.Any(e => e.Id == id);
+            return _context.Personas.Any(e => e.Id == id);
         }
     }
 }

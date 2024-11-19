@@ -14,6 +14,6 @@ namespace Ejercicio02ASP.Data
         {
         }
 
-        public DbSet<ENT.clsPersona> clsPersona { get; set; } = default!;
+        public DbSet<ENT.clsPersona> Personas { get; set; } = default!;
     }
 }

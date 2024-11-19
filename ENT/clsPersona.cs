@@ -1,4 +1,6 @@
-﻿namespace ENT
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ENT
 {
     public class clsPersona
     {
@@ -9,6 +11,7 @@
         private string telefono;
         private String direccion;
         private String foto;
+        //[Column ("FechaNacimiento")]
         private DateTime fechaNacimiento;
         private int idDepartamento;
         #endregion

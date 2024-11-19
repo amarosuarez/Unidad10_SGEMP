@@ -69,6 +69,10 @@ namespace Ejercicio02Maui.VM
         #endregion
 
         #region Métodos
+
+        /// <summary>
+        /// Función que muestra la lista
+        /// </summary>
         private void MostrarCommand_Executed()
         {
             // Cambiar el valor de muestraLista cuando se ejecuta el comando
@@ -76,20 +80,31 @@ namespace Ejercicio02Maui.VM
             NotifyPropertyChanged("MuestraLista");
         }
 
+        /// <summary>
+        /// Función que devuelve si el botón mostrar esta habilitado o deshabilitado
+        /// </summary>
+        /// <returns>Devuelve si está habilitado o deshabilitado</returns>
         public bool MostrarCommand_CanExecute()
         {
-            return !muestraLista; // La lista se puede mostrar si muestraLista es falso
+            return !muestraLista;
         }
 
+        /// <summary>
+        /// Función que oculta la lista
+        /// </summary>
         private void OcultarCommand_Executed()
         {
             MuestraLista = false;
             NotifyPropertyChanged("MuestraLista");
         }
 
+        /// <summary>
+        /// Función que devuelve si el botón ocultar esta habilitado o deshabilitado
+        /// </summary>
+        /// <returns>Devuelve si está habilitado o deshabilitado</returns>
         public bool OcultarCommand_CanExecute()
         {
-            return muestraLista; // La lista se puede ocultar si muestraLista es verdadero
+            return muestraLista;
         }
         #endregion
 
